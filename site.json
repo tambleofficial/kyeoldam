@@ -1,0 +1,17 @@
+{
+  "name": "결담 브로우 관찰기",
+  "type": "blog",
+  "description": "상담부터 디자인까지 읽는 눈썹문신 에디터 노트",
+  "tagline": "상담부터 디자인까지 읽는 눈썹문신 에디터 노트",
+  "colors": [
+    "#03c75a",
+    "#f1f8f3",
+    "#03c75a"
+  ],
+  "default_art": "consultation",
+  "english": "BROW EDITORIAL",
+  "mark": "●",
+  "editor": "뷰티 에디터",
+  "shop": "결담 브로우",
+  "disclosure": "가상의 뷰티샵과 상담 장면을 설정한 에디토리얼 예시입니다. 사진도 연출 이미지이며 실제 방문 후기나 시술 결과가 아닙니다."
+}
