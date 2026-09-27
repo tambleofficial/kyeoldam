@@ -1,15 +1,15 @@
-# 결담 브로우 관찰기 — 눈썹문신 에디토리얼 예시
+# 결담 브로우 관찰기 — 블로그형 눈썹문신 에디토리얼
 
-블로그/카페 형태의 **글 화면**입니다. 첫 화면 `index.html`은 최신 글 본문이며, 각 글은 `/blog/slug/`에 쌓입니다. 사진은 이 프로젝트를 위해 생성한 연출 이미지입니다. 글 속 뷰티샵, 상담 장면과 평가는 **가상 시나리오**이며 실제 방문이나 시술 결과를 주장하지 않습니다.
+이 ZIP을 풀어 **안의 파일 전체**를 한 GitHub 저장소의 최상위에 올리세요. 첫 화면은 긴 포스팅이며 각 글은 `/blog/글주소/`에 저장됩니다. 사진은 제작용 자료 이미지이며 글은 상담 장면을 가정해 에디터의 기준을 설명합니다. 실제 고객 방문 후기나 시술 결과를 나타내지 않습니다.
 
-## GitHub → Cloudflare Pages
+## Cloudflare Pages 연결
 
-ZIP을 풀어 내용물 전체를 별도 GitHub 저장소의 최상위에 올립니다. Cloudflare Pages에서 해당 저장소를 연결하고 Framework preset `None`, Build command **비움**, Build output directory `.` 및 Production branch `main`을 선택합니다. 첫 배포에는 별도 설치가 필요하지 않습니다.
+Workers & Pages → Create application → Pages → Connect to Git에서 저장소를 연결합니다. Framework preset `None`, Build command **비움**, Build output directory `.`, Production branch `main`을 사용합니다.
 
-## 글 추가하기
+## 새 글 추가
 
-`content/example-post.json`을 참고해 `content/posts/new-post.json`을 만들고 `slug`를 `new-post`로 맞춥니다. 제목, 카테고리, `YYYY-MM-DD` 날짜, 본문 문단, `image`와 `image2`를 바꿉니다. 이미지는 `assets/images/`에 있는 webp 파일명을 확장자 없이 적거나 새 이미지를 해당 폴더에 추가하세요. 글 내용이 실제 업체에 관한 경우 확인 가능한 사실과 사진 사용 권한을 먼저 확인하세요.
+`content/example-post.json`을 복사해 `content/posts/new-post.json`을 만들고 `slug`를 `new-post`로 맞춥니다. 본문은 `body` 배열에 문단별로 작성합니다. 사진은 `assets/images/`의 파일명을 확장자 없이 `image`, `image2`에 적습니다. 필요하면 `comments` 배열에 `name`, `text`를 적어 고정 댓글을 편집할 수 있습니다. 방문자용 댓글 작성 폼은 없습니다.
 
-`main`에 push하면 포함된 GitHub Actions가 `index.html`과 `/blog/new-post/`를 생성해 커밋합니다. Actions 쓰기 권한이 없는 저장소에서는 `python3 scripts/build.py`를 로컬에서 실행한 뒤 생성된 파일을 직접 커밋합니다.
+`main`에 push하면 GitHub Actions가 첫 화면과 `/blog/new-post/` 파일을 재생성해 커밋합니다. Actions 쓰기가 허용되지 않는 저장소에서는 `python3 scripts/build.py`를 실행하고 생성된 `index.html`, `blog/`를 직접 커밋하세요.
 
-색상과 이름은 `site.json`, 레이아웃은 `assets/style.css`, 글 원본은 `content/posts/*.json`입니다. 댓글과 공감은 현재 방문자의 브라우저에만 저장되는 데모 기능입니다.
+이름과 색은 `site.json`, 스타일은 `assets/style.css`, 글 내용은 `content/posts/*.json`에서 수정합니다.
